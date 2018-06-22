@@ -8,6 +8,18 @@
 		{{ with .Site.Params.FaviconImg }}
 		<link rel="shortcut icon" href="{{.}}">
 		{{ end }}
+		
+		{{ if .Site.Params.DebugCSS }}
+		<link rel="stylesheet" href="/css/normalize.css"/>
+		<link rel="stylesheet" href="/css/ui.css"/>
+		<link rel="stylesheet" href="/css/syntax.css"/>
+		{{ else }}
+		<link rel="stylesheet" href="/css/ui.min.css"/>
+		{{ end }}
+		
+		{{ range .Site.Params.CustomCSS }}
+		<link rel="stylesheet" href="{{ . }}"/>
+		{{ end }}
 
 		<link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato|Raleway">
 
@@ -17,13 +29,6 @@
 		{{ range .Site.Params.HighlightJsLanguages }}
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/{{- . -}}.min.js"></script>
 		{{ end }}
-		{{ end }}
-
-		{{ if .Site.Params.DebugCSS }}
-		<link rel="stylesheet" href="{{ "/css/normalize.css" | relURL }}"/>
-		<link rel="stylesheet" href="{{ "/css/ui.css" | relURL }}"/>
-		{{ else }}
-		<link rel="stylesheet" href="{{ "/css/ui.min.css" | relURL }}"/>
 		{{ end }}
 		{{ partial "style" . }}
 	</head>
