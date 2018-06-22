@@ -1,10 +1,19 @@
 {{ with .Site.Params.Email }}
-<a href="mailto:{{.}}"><img class="icon-social" src="{{ "/img/email.svg" | relURL }}" alt="Email Me!"/></a>
+	<a href="mailto:{{.}}"><i class="fas fa-envelope fa-2x"></i></a>
 {{ end }}
 {{ with .Site.Params.Github }}
-<a href="{{.}}"><img class="icon-social" src="{{ "/img/github.svg" | relURL }}" alt="Github"/></a>
+	<a href="{{.}}"><i class="fab fa-github fa-2x"></i></a>
+{{ end }}
+{{ with .Site.Params.Bitbucket }}
+	<a href="{{.}}"><i class="fab fa-bitbucket fa-2x"></i></a>
 {{ end }}
 {{ with .Site.Params.Twitter }}
-<a href="{{.}}"><img class="icon-social" src="{{ "/img/twitter.svg" | relURL }}" alt="Twitter"/></a>
+	<a href="{{.}}"><i class="fab fa-twitter fa-2x"></i></a>
 {{ end }}
-<a href="{{.Site.RSSLink | relLangURL }}" target="_blank"><img class="icon-social" src="{{ "/img/feed.svg" | relURL }}" alt="Feed"></a>
+{{ with .Site.Params.Facebook }}
+	<a href="{{.}}"><i class="fab fa-facebook fa-2x"></i></a>
+{{ end }}
+{{ with .Site.Params.Instagram }}
+	<a href="{{.}}"><i class="fab fa-instagram fa-2x"></i></a>
+{{ end }}
+<a href="{{.Site.RSSLink | relLangURL }}" target="_blank"><i class="fas fa-rss fa-2x"></i></a>
